@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>contactus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Just+Another+Hand&family=Laila:wght@300;400;500&family=Pangolin&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="contactus.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="icon" href="cafeimages\cafesmall.webp" type="image/icon type" />
+    <script
+      src="https://kit.fontawesome.com/7bf5fc8939.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+<nav>
+      <div class="logo">
+        <img src="cafeimages\logo1.webp" />
+      </div>
+      <input type="checkbox" id="click" />
+      <label for="click" class="menu-btn"><i class="fas fa-bars"></i></label>
+      <ul>
+        <li>
+          <a class="active1" href="index.html"
+            ><i class="fa-solid fa-house"></i><b> HOME</b></a
+          >
+        </li>
+        <li>
+          <a class="active2" href="aboutus.html"
+            ><i class="fa-solid fa-address-card"></i><b> ABOUT US</b></a
+          >
+        </li>
+        <li>
+          <a class="active3" href="gallery.html">
+            <i class="fa-brands fa-envira"></i><b> GALLERY</b></a
+          >
+        </li>
+        <li>
+          <a class="active4" href="contactus.html"
+            ><i class="fa-solid fa-phone"></i><b> CONTACT US</b></a
+          >
+        </li>
+        <li>
+          <a class="active5" href="cart.html" id="ORDER"
+            ><i class="fa-solid fa-cart-shopping"></i><b> ORDER ONLINE</b></a
+          >
+        </li>
+        <li>
+          <a class="active6" href="loginmain.html"
+            ><i class="fas fa-user-cog"> </i><b> ADMIN</b></a
+          >
+        </li>
+      </ul>
+    </nav>
+    <div class="container">
+      <div class="info">
+        <h1>Cafe Maifil</h1>
+        <p>
+          At Cafe Maifil you can find a variety of snacks such as Bhel,
+          Sandwiches, Maggie and cold beverages.
+          <br />We are conveniently located near Malavali Railway Station,
+          Lonavala. <br />
+          Order online for fast service or home delivery!
+        </p>
+        <h2>Service Options</h2>
+        <ul>
+          <li>Casual Dining</li>
+          <li>Space for Parking</li>
+          <li>Birthday parties arrangement</li>
+        </ul>
+        <h2>Business hours</h2>
+        <ul>
+          <li>Monday - Friday: 11:00 AM - 9:00 PM</li>
+          <li>Saturdy : Noon - 9:00 PM</li>
+          <li>Sunday : Closed</li>
+        </ul>
+        <h4>
+         
+            Cafe Maifil, 
+          <br/>
+            Near Malavali Railway Station, <br/>
+            Ekvira Devi Road, Malavali, <br/>
+            Lonavala
+          
+        </h4>
+      </div>
+
+
+      <div class="contact-box">
+        <h1>FeedBack Form</h1>
+        <form action="https://formspree.io/f/mknaoazy" method="POST" />
+          <input
+            type="text"
+            NAME="FULL NAME"
+            id="name"
+            class="field"
+            placeholder="Name"
+            required
+          />
+
+          <input
+            type="text"
+            NAME="EMAIL"
+            id="email"
+            class="fieldemail"
+            placeholder="Email ID"
+            required
+          />
+
+          <input
+            type="number"
+            pattern="\d{10}"
+            NAME="PHONE"
+            id="phone"
+            class="field"
+            placeholder="phone number"
+            required
+          />
+
+          <textarea
+            id="message"
+            NAME="MESSAGE"
+            placeholder="message"
+            class="field"
+            required
+          ></textarea>
+
+          <button class="btn">Send</button>
+        </form>
+      </div>
+    </div>
+    <footer>
+      <div class="footer-content">
+        <h3>Cafe Maifil</h3>
+        <p>
+        "Taste the deliciousness at Cafe Maifil – where culinary dreams come true!"
+        </p>
+        <ul class="socials">
+          <li>
+            <a href="https://www.facebook.com/krishna.ingalgi/"
+              ><i class="fa fa-facebook"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/krishna_ingalgi/"
+              ><i class="fa fa-instagram"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://twitter.com/krishna_ingalgi"
+              ><i class="fa fa-twitter"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://github.com/krishna-ingalgi"
+              ><i class="fa fa-github"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/krishna-ingalgi-04948a22a/"
+              ><i class="fa fa-linkedin-square"></i
+            ></a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          copyright &copy;2023 CafeMaifil. designed by
+          <span>Krishna Ingalgi</span>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Cart</title>
+    <style>
+      /* Styles for the cart page */
+      body {
+        background-size: cover;
+        background-image: linear-gradient(
+            rgba(0.5, 0, 0, 0.8),
+            rgba(0.5, 0, 0, 0.8)
+          ),
+          url("cafeimages/burger2.webp");
+        color: rgb(224, 206, 45);
+        font-family: Trebuchet MS, sans-serif;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .cart-container {
+        background-color: #232b2b;
+        padding: 20px;
+        max-width: 600px;
+        width: 100%;
+        border-radius: 10px;
+        animation: fade-in 0.5s;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      form {
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      label {
+        margin-bottom: 10px;
+      }
+
+      select,
+      button[type="submit"] {
+        background-color: #232b2b;
+        color: rgb(224, 206, 45);
+        border: none;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        font-family: inherit;
+        font-size: inherit;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      select:hover,
+      button[type="submit"]:hover {
+        background-color: #555;
+      }
+
+      .add-to-cart-button {
+        background-color: rgb(224, 206, 45);
+        color: #000;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+
+      .checkout-button {
+        background-color: rgb(224, 206, 45);
+        color: #000;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        float: right;
+      }
+
+      .checkout-button:hover {
+        background-color: #e0ce2d;
+      }
+
+      .quantity-container {
+        margin-left: 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+      }
+
+      .quantity-edit {
+        display: block;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        background-color: rgb(224, 206, 45);
+        color: black;
+        font-weight: 800;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-right: 0px;
+      }
+
+      .quantity-edit:hover {
+        background-color: #555;
+      }
+
+      .quantity-display {
+        padding: 0 10px;
+      }
+
+      .price-showcase {
+        margin-top: 20px;
+        color: rgb(224, 206, 45);
+        font-weight: bold;
+      }
+
+      .cart-item {
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+
+      .item-name {
+        flex-grow: 1;
+      }
+
+      .item-image {
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 10px; /* Adjust the margin as needed */
+      }
+
+      .delete-button {
+        background-color: #d60000;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .delete-button:hover {
+        background-color: #b30000;
+      }
+
+      /* Animation styles */
+      @keyframes fade-in {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cart-container">
+      <h1>Cart Page</h1>
+
+      <div id="cart-items"></div>
+
+      <form id="add-item-form">
+        <label for="item-dropdown">Select an item:</label>
+        <select id="item-dropdown">
+          <option value="burger">Burger</option>
+          <option value="vegGrilledSandwich">Veg Grilled Sandwich</option>
+          <option value="cheeseVegGrilledSandwich">
+            Cheese Veg Grilled Sandwich
+          </option>
+          <option value="plainMaggie">Plain Maggie</option>
+          <option value="masalaMaggie">Masala Maggie</option>
+          <option value="cheeseMaggie">Cheese Maggie</option>
+          <option value="frenchFries">French Fries</option>
+          <option value="periPeriFries">Peri Peri Fries</option>
+          <option value="cheeseFries">Cheese Fries</option>
+          <option value="vadapav">Vadapav</option>
+          <option value="bhajjiOnion">Bhajji (Onion)</option>
+          <option value="bhajjiPotato">Bhajji (Potato)</option>
+          <option value="bhajjiChilli">Bhajji (Chilli)</option>
+          <option value="breadPattice">Bread Pattice</option>
+          <option value="vadachaat">Vadachaat</option>
+          <option value="bhel">Bhel</option>
+          <option value="tea">Tea</option>
+          <option value="blackTea">Black Tea</option>
+          <option value="lemonTea">Lemon Tea</option>
+          <option value="hotCoffee">Hot Coffee</option>
+          <option value="blackCoffee">Black Coffee</option>
+          <option value="coldCoffee">Cold Coffee</option>
+          <!-- Add more options as needed -->
+        </select>
+
+        <div class="price-showcase">
+          Total: $<span id="total-price">0</span>
+        </div>
+
+        <button type="submit" class="add-to-cart-button">Add to Cart</button>
+      </form>
+
+      <div id="checkout-container">
+        <button class="checkout-button" onclick="redirectToCheckout()">
+          Checkout
+        </button>
+      </div>
+
+      <script>
+        const cartItems = [];
+
+        // Function to render cart items
+        function renderCartItems() {
+          const cartItemsContainer = document.getElementById("cart-items");
+          cartItemsContainer.innerHTML = "";
+
+          const itemCounts = {};
+
+          cartItems.forEach((item) => {
+            if (!itemCounts[item.id]) {
+              itemCounts[item.id] = 0;
+            }
+
+            itemCounts[item.id] += item.quantity;
+          });
+
+          Object.keys(itemCounts).forEach((itemId) => {
+            const item = cartItems.find((item) => item.id === itemId);
+            const quantity = itemCounts[itemId];
+
+            const cartItem = document.createElement("div");
+            cartItem.classList.add("cart-item");
+
+            const itemImage = document.createElement("img");
+            itemImage.src = item.image;
+            itemImage.alt = item.name;
+            itemImage.classList.add("item-image");
+
+            const itemName = document.createElement("span");
+            itemName.textContent = item.name;
+
+            const quantityContainer = document.createElement("div");
+            quantityContainer.classList.add("quantity-container");
+
+            const quantityMinusButton = document.createElement("button");
+            quantityMinusButton.classList.add("quantity-edit");
+            quantityMinusButton.textContent = "-";
+            quantityMinusButton.addEventListener("click", () =>
+              decreaseQuantity(item.id)
+            );
+
+            const quantityDisplay = document.createElement("span");
+            quantityDisplay.classList.add("quantity-display");
+            quantityDisplay.textContent = quantity;
+
+            const quantityPlusButton = document.createElement("button");
+            quantityPlusButton.classList.add("quantity-edit");
+            quantityPlusButton.textContent = "+";
+            quantityPlusButton.addEventListener("click", () =>
+              increaseQuantity(item.id)
+            );
+
+            const deleteButton = document.createElement("button");
+            deleteButton.classList.add("delete-button");
+            deleteButton.textContent = "Delete";
+            deleteButton.addEventListener("click", () => deleteItem(itemId));
+
+            quantityContainer.appendChild(quantityMinusButton);
+            quantityContainer.appendChild(quantityDisplay);
+            quantityContainer.appendChild(quantityPlusButton);
+
+            cartItem.appendChild(itemImage);
+            cartItem.appendChild(itemName);
+            cartItem.appendChild(quantityContainer);
+            cartItem.appendChild(deleteButton);
+
+            cartItemsContainer.appendChild(cartItem);
+          });
+        }
+
+        // Function to decrease the quantity of an item
+        function decreaseQuantity(itemId) {
+          const item = cartItems.find((item) => item.id === itemId);
+          item.quantity--;
+
+          if (item.quantity <= 0) {
+            deleteItem(itemId);
+          }
+
+          renderCartItems();
+          updateTotalPrice();
+        }
+
+        // Function to increase the quantity of an item
+        function increaseQuantity(itemId) {
+          const item = cartItems.find((item) => item.id === itemId);
+          item.quantity++;
+
+          renderCartItems();
+          updateTotalPrice();
+        }
+
+        // Function to delete an item from the cart
+        function deleteItem(itemId) {
+          const index = cartItems.findIndex((item) => item.id === itemId);
+          if (index > -1) {
+            cartItems.splice(index, 1);
+            renderCartItems();
+            updateTotalPrice();
+          }
+        }
+
+        // Function to handle form submission and add item to cart
+        function addItemToCart(event) {
+          event.preventDefault();
+          const itemDropdown = document.getElementById("item-dropdown");
+          const selectedItemId = itemDropdown.value;
+
+          // Replace with your own logic to fetch item details based on the selectedItemId
+
+          // Example: Assuming the item details are fetched from an array of available items
+          const availableItems = [
+            { id: "burger", name: "Burger", image: "cart/burger.webp" },
+            {
+              id: "vegGrilledSandwich",
+              name: "Veg Grilled Sandwich",
+              image: "cart/veg_sandwich.jpg",
+            },
+            {
+              id: "cheeseGrilledSandwich",
+              name: "Cheese Grilled Sandwich",
+              image: "image12.cart/cheese_sandwich.webp",
+            },
+            {
+              id: "plainMaggie",
+              name: "Plain Maggie",
+              image: "cart/plain_maggie.webp",
+            },
+            {
+              id: "masalaMaggie",
+              name: "Masala Maggie",
+              image: "cart/masala_maggie.jpg",
+            },
+            {
+              id: "cheeseMaggie",
+              name: "Cheese Maggie",
+              image: "cart/cheese_maggie.jpg",
+            },
+            { id: "frenchFries", name: "French Fries", image: "image12.webp" },
+            {
+              id: "periPeriFries",
+              name: "Peri Peri Fries",
+              image: "cart/peri_fries.jpg",
+            },
+            {
+              id: "cheeseFries",
+              name: "Cheese Fries",
+              image: "cart/cheese_fries.webp",
+            },
+            { id: "vadapav", name: "Vadapav", image: "cart/vadapav.jpg" },
+            {
+              id: "bhajjiOnion",
+              name: "Onion Bhajji",
+              image: "cart/onion_bhajji.png",
+            },
+            {
+              id: "bhajjiPotato",
+              name: "Potato Bhajji",
+              image: "cart/potato_bhajji.jpg",
+            },
+            {
+              id: "bhajjiChilli",
+              name: "Chilli Bhajji",
+              image: "cart/chilli_bhajji.jpg",
+            },
+            {
+              id: "breadPattice",
+              name: "Bread Pattice",
+              image: "cart/bread_pattice.jpg",
+            },
+            {
+              id: "vadachaat",
+              name: "Vadachaat",
+              image: "cart/vadachaat.webp",
+            },
+            { id: "bhel", name: "Bhel", image: "cart/bhel.jpg" },
+            { id: "tea", name: "Tea", image: "cart/tea.jpeg" },
+            { id: "blackTea", name: "Black Tea", image: "cart/black_tea.jpg" },
+            { id: "lemonTea", name: "Lemon Tea", image: "cart/lemon_tea.jpg" },
+            {
+              id: "hotCoffee",
+              name: "Hot Coffee",
+              image: "cart/hot_coffee.jpeg",
+            },
+            {
+              id: "blackCoffee",
+              name: "Black Coffee",
+              image: "cart/black_coffee.jpg",
+            },
+            {
+              id: "coldCoffee",
+              name: "Cold Coffee",
+              image: "cart/cold_coffee.jpg",
+            },
+
+            // Add more items as needed
+          ];
+
+          const selectedItem = availableItems.find(
+            (item) => item.id === selectedItemId
+          );
+          if (selectedItem) {
+            const item = { ...selectedItem, quantity: 1 };
+            cartItems.push(item);
+            renderCartItems();
+            updateTotalPrice();
+          }
+        }
+
+        // Function to update the total price
+        function updateTotalPrice() {
+          const totalPriceSpan = document.getElementById("total-price");
+          const totalPrice = cartItems.reduce(
+            (total, item) => total + item.quantity,
+            0
+          );
+          totalPriceSpan.textContent = totalPrice.toFixed(2);
+        }
+
+        // Add event listener to the form submit event
+        const addItemForm = document.getElementById("add-item-form");
+        addItemForm.addEventListener("submit", addItemToCart);
+
+        // Placeholder event listener for checkout button
+        const checkoutButton = document.querySelector(".checkout-button");
+        checkoutButton.addEventListener("click", () => {
+          // Replace with your own logic for checkout
+          // Redirect to payment gateway or perform any necessary actions
+          console.log("Checkout button clicked!");
+        });
+
+        function redirectToCheckout() {
+          // Replace with your own logic for displaying the cart value
+          const totalPrice = document.getElementById("total-price").textContent;
+          const alertMessage = `Cart Value: Rs. ${totalPrice}`;
+
+          window.alert(alertMessage);
+        }
+      </script>
+    </div>
+  </body>
+</html>

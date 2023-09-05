@@ -1,0 +1,311 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Trebuchet MS;
+}
+
+.main {
+  height: 100vh;
+  background-color: #000;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.owner {
+  text-align: center;
+}
+
+.owner h3,
+h5 {
+  font-weight: 800;
+  color: rgb(224, 206, 45);
+}
+.owner img {
+  padding-bottom: 20px;
+  width: 250px;
+  border-radius: 10%;
+}
+
+.comment {
+  font-weight: 400;
+  color: rgb(224, 206, 45);
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.comment i {
+  font-weight: 800;
+  font-family: "Trebuchet MS";
+}
+
+nav {
+  height: 80px;
+  background-color: #232b2b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 50px 0px 10px;
+  /* font-family: Trebuchet MS; */
+}
+
+nav .logo {
+  height: 100px;
+  width: auto;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+nav ul li {
+  padding: 20px;
+  margin: 0 5px;
+}
+
+nav ul li a {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: rgb(224, 206, 45);
+  border-radius: 50px;
+  transition: 0.3s ease;
+  padding: 8px 10px;
+}
+
+nav ul li a:hover
+/*nav ul li a.active*/ {
+  background-color: rgb(224, 206, 45);
+  border-radius: 50px;
+  color: #000;
+  transition: 0.6s ease;
+}
+
+nav ul li a.active2 {
+  background-color: rgb(224, 206, 45);
+  border-radius: 50px;
+  color: #000;
+  transition: 0.6s ease;
+}
+
+nav .menu-btn i {
+  color: aliceblue;
+  font-size: 25px;
+  cursor: pointer;
+  display: none;
+}
+
+.logo img {
+  align-items: flex-start;
+  height: 100px;
+  width: auto;
+}
+
+nav .menu-btn i {
+  color: rgb(224, 206, 45);
+  display: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#click {
+  display: none;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #232b2b;
+  height: auto;
+  width: 100vw;
+  font-family: "Open Sans";
+  padding-top: 40px;
+  color: #fff;
+}
+.footer-content {
+  padding: 1%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.footer-content h3 {
+  color: rgb(224, 206, 45);
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  line-height: 3rem;
+}
+.footer-content p {
+  max-width: 500px;
+  margin: 10px auto;
+  line-height: 28px;
+  font-size: 14px;
+}
+.socials {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 3rem 0;
+}
+.socials li {
+  margin: 0 10px;
+}
+.socials a {
+  text-decoration: none;
+  color: #fff;
+}
+.socials a i {
+  color: rgb(224, 206, 45);
+  font-size: 1.1rem;
+  transition: color 0.4s ease;
+}
+.socials a:hover i {
+  color: aqua;
+}
+
+.footer-bottom {
+  background: #0b0b0b;
+  width: 100vw;
+  padding: 20px 0;
+  text-align: center;
+}
+.footer-bottom p {
+  font-size: 14px;
+  word-spacing: 2px;
+  text-transform: capitalize;
+}
+.footer-bottom span {
+  opacity: 0.5;
+  font-weight: 300;
+}
+
+@media (max-width: 1000px) {
+  .para p {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  nav .menu-btn i {
+    display: block;
+  }
+
+  nav ul {
+    display: block;
+    position: absolute;
+    top: 80px;
+    left: -100%;
+    background-color: #232b2b;
+    height: 100vh;
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+
+  nav ul li {
+    margin: 40px 0;
+  }
+  #click:checked ~ ul {
+    left: 0%;
+  }
+  #click:checked ~ .menu-btn i:before {
+    content: "\f00d";
+  }
+  nav ul li a {
+    font-size: 30px;
+    display: block;
+    color: rgb(224, 206, 45);
+  }
+  nav ul li a:hover {
+    background-color: #232b2b;
+    border-radius: 50px;
+    color: rgb(224, 206, 45);
+    transition: 0.3s ease;
+  }
+}
+
+@media (max-width: 300px) {
+  .image img {
+    height: 250px;
+    width: fit-content;
+  }
+  .para p {
+    width: 100%;
+    font-size: 10px;
+    display: inline-block;
+    text-align: center;
+    height: max-content;
+  }
+}
+
+@media (max-width: 500px) {
+  .main {
+    height: fit-content;
+  }
+  .image {
+    font-size: auto;
+    height: fit-content;
+  }
+  .para p {
+    width: 100%;
+    font-size: 15px;
+    display: inline-block;
+    text-align: center;
+    height: max-content;
+  }
+  footer h6 {
+    text-align: center;
+    padding-top: 20px;
+    background-color: #232b2b;
+    color: black;
+    width: 100%;
+    height: 20px;
+  }
+
+  nav .menu-btn i {
+    display: block;
+  }
+
+  nav ul {
+    display: block;
+    position: absolute;
+    top: 80px;
+    background-color: #232b2b;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+  }
+
+  nav ul li {
+    margin: 5px 0;
+    line-height: 10px;
+  }
+  #click:checked ~ ul {
+    left: 0%;
+    height: 100vh;
+  }
+  #click:checked ~ .menu-btn i:before {
+    content: "\f00d";
+  }
+  nav ul li a {
+    background-color: #232b2b;
+    font-size: 15px;
+    display: block;
+    color: rgb(224, 206, 45);
+  }
+  nav ul li a:hover {
+    background-color: #232b2b;
+    border-radius: 50px;
+    color: rgb(224, 206, 45);
+    transition: 0.3s ease;
+  }
+}
